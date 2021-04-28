@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.sass']
+    selector: 'app-heroes',
+    templateUrl: './heroes.component.html',
+    styleUrls: ['./heroes.component.sass']
 })
 export class HeroesComponent implements OnInit {
 
+    /*
     selectedHero?: Hero;
-    heroes?: Hero[];
-
-    constructor(private heroService: HeroService, private messageService: MessageService) { }
-
-    ngOnInit() {
-        this.getHeroes();
-    }
 
     onSelect(hero: Hero): void {
         this.selectedHero = hero;
@@ -25,10 +19,17 @@ export class HeroesComponent implements OnInit {
         //this.messageService.add("HeroesComponent: Selected hero id=" + hero.id);
     }
 
-    //Sincrono
-    /*getHeroes(): void {
+    getHeroes(): void {
         this.heroes = this.heroService.getHeroes();
     }*/
+
+    heroes?: Hero[];
+
+    constructor(private heroService: HeroService) { }
+
+    ngOnInit() {
+        this.getHeroes();
+    }
 
     //Asincrono
     getHeroes(): void {
